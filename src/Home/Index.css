@@ -1,0 +1,57 @@
+.avatarStyle {
+    padding: 10px;
+}
+.grdStyle {
+    text-align: end;
+}
+/* tab.active {
+    background-color: green; color: #fff !important;
+} */
+/* .Home {
+    background-color: #1B98F5 !important; 
+    color: #fff !important;
+    opacity: 1 !important;
+}
+.PlayQuiz {
+    background-color: #1B98F5 !important; 
+    color: #fff !important;
+    opacity: 1 !important;
+}
+.MyQuiz {
+    background-color: #1B98F5 !important; 
+    color: #fff !important;
+    opacity: 1 !important;
+} */
+
+/* //---------------Navbar-Style------------------ */
+.navbar-links {
+    display: flex;
+    font-size: 1.2rem;
+}
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.navbar-links li {
+    list-style: none;
+}
+
+.active {
+    background-color: #50cace;
+    
+}
+
+.navbar-links li .nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    /* display: block; */
+}
+
+.clsTitle {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+

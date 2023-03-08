@@ -1,0 +1,26 @@
+
+.navbar-linksTwo {  
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0;
+}
+.navbar-linksTwo ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+.navbar-linksTwo li {
+    list-style: none;
+}
+
+.active {
+    background-color: #50cace;
+    
+}
+
+.navbar-linksTwo li .nav-link {
+    text-decoration: none;
+    color: rgb(14, 12, 12);
+    padding: 1rem;
+    display: block;
+}
