@@ -13,3 +13,11 @@
     display: flex;
     padding-bottom:5px;
 }
+.headerstyleCrt {
+  display: flex;
+  justify-content: space-between;
+  
+}
+body{
+  background: white;
+}

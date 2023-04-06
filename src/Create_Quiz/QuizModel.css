@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .modalContainer {
@@ -67,4 +68,7 @@
 
 #cancelBtn {
   background-color: crimson;
+}
+.Diaclass {
+  border: 2px solid #17adcf;
 }

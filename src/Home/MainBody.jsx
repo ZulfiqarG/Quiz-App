@@ -23,6 +23,11 @@ const MainBody = () => {
     navigate("/SingleQuiz");
   }
 
+  const goPlayQuizes =()=> {
+
+    navigate("/PlayQuiz");
+  }
+
   const [openModal, setOpenModal] = useState(false);
   return (
     
@@ -82,7 +87,7 @@ const MainBody = () => {
             alt=""
           />
         </CardCover>
-        <CardContent>
+        <CardContent onClick={goPlayQuizes}>
           <Typography
             level="h6"
             fontWeight="lg"

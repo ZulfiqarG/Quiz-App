@@ -1,16 +1,15 @@
-//import {  Card, Checkbox, Grid, Paper, TextField } from "@mui/material";
-//import { Box } from "@mui/system";
-import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-// import { useNavigate } from 'react-router-dom';
-//import { ToastContainer, toast } from "react-toastify";
-//import "react-toastify/dist/ReactToastify.css";
-//import "./CreateNewQuiz.css";
-//import SingleQuiz from "../My_Quiz/SingleQuiz";
+import { Box, Button,  Checkbox, Grid, Paper, TextField, Typography } from "@mui/material";
+import React, { useState } from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
+import ControlPointOutlinedIcon from '@mui/icons-material/ControlPointOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./CreateNewQuiz.css";
 
 const CreateNewQuiz = () => {
   const [groupName, setGroupName] = useState("");
-  const [groupDescription, setGroupDescription] = useState("");
+  const [groupDescription, setGroupDescription] = useState("");  
   const [subGroups, setSubGroups] = useState([
     {
       question: "",
@@ -30,16 +29,25 @@ const CreateNewQuiz = () => {
   };
 
   const handleSubGroupChange = (event, index, key) => {
+
     const newSubGroups = [...subGroups];
     newSubGroups[index][key] = event.target.value;
     setSubGroups(newSubGroups);
   };
 
   const handleCheckboxChange = (event, index, key) => {
+
     const newSubGroups = [...subGroups];
-    newSubGroups[index][key] = event.target.checked;
-    setSubGroups(newSubGroups);
-    
+  newSubGroups[index][key] = event.target.checked;
+
+  if (key === "checked1" && event.target.checked) {
+    newSubGroups[index].checked2 = false;
+  } else if (key === "checked2" && event.target.checked) {
+    newSubGroups[index].checked1 = false;
+  }
+
+  setSubGroups(newSubGroups);
+
   };
 
   const handleAddSubGroup = () => {
@@ -52,6 +60,7 @@ const CreateNewQuiz = () => {
           option2: "",
           checked1: false,
           checked2: false,
+          correctAns: "",
         },
       ]);
     } else {
@@ -76,49 +85,68 @@ const CreateNewQuiz = () => {
   function handleSubmit(event) {
     event.preventDefault();
 
+    
     // creating a ID for every todo
     const date = new Date();
     const time = date.getTime();
 
     //TODO Write alert code here
     if (!groupName) {
-      alert("Please insert Group Name");
+      toast.error("Please insert Group Name",{position:"top-center"});
       document.getElementById("groupName").focus();
       return;
     }
     if (!groupDescription) {
-      alert("Please insert Group Description");
+      toast.error("Please insert Group Description",{position:"top-center"});
       document.getElementById("groupDescription").focus();
       return;
     }
     for (let i = 0; i < subGroups.length; i++) {
       if (!subGroups[i].question) {
-        alert(`Please insert Question ${i + 1}`);
+        toast.error(`Please insert Question ${i + 1}`,{position:"top-center"});
         document.getElementById(`question-${i}`).focus();
         return;
       }
       if (!subGroups[i].option1) {
-        alert(`Please insert Option 1 for Question ${i + 1}`);
+        toast.error(`Please insert Option 1 for Question ${i + 1}`,{position:"top-center"});
         document.getElementById(`option1-${i}`).focus();
         return;
       }
       if (!subGroups[i].option2) {
-        alert(`Please insert Option 2 for Question ${i + 1}`);
+        toast.error(`Please insert Option 2 for Question ${i + 1}`,{position:"top-center"});
         document.getElementById(`option2-${i}`).focus();
         return;
       }
     }
 
+      //TODO Save Correct Answer:
+    const newSubGroups = subGroups.map((subGroup) => {
+      if (subGroup.checked1) {
+        return {
+          ...subGroup,
+          correctAns: subGroup.option1,
+        };
+      } else if (subGroup.checked2) {
+        return {
+          ...subGroup,
+          correctAns: subGroup.option2,
+        };
+      } else {
+        return subGroup;
+      }
+    });
+
     const formData = {
       ID: time,
       groupName: groupName,
       groupDescription: groupDescription,
-      subGroups: subGroups,
+      CreatedOn: new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true, day: 'numeric', month: 'short' }),
+      subGroups: newSubGroups,
     };
 
     saveToLocalStorage(formData);
-    //localStorage.setItem('myquiz', JSON.stringify(formData));
-    console.log(formData);
+    toast.success("Record Saved Successfully",{position:"top-center"});
+    //console.log(formData);
     setGroupName("");
     setGroupDescription("");
     setSubGroups([
@@ -131,117 +159,103 @@ const CreateNewQuiz = () => {
       },
     ]);
   }
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log({
-  //     groupName,
-  //     groupDescription,
-  //     subGroups,
-  //   });
-  //   setGroupName("");
-  //   setGroupDescription("");
-  //   setSubGroups([
-  //     {
-  //       question: "",
-  //       option1: "",
-  //       option2: "",
-  //       checked1: false,
-  //       checked2: false,
-  //     },
-  //   ]);
-  // };
   return (
+
     <div>
-      <h1>Group Form</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Group Name:
-          <input
-            type="text"
-            id="groupName"
+    <form onSubmit={handleSubmit}>
+      
+        <Box>
+          <Grid container spacing={2} justifyContent="center">
+            <Grid item xs={12} md={8}>
+              <Paper className="paperStyle">
+                <Grid align="center">
+                  <h2>Create New Quiz</h2>
+                </Grid>
+                <TextField type="text" label="Group Name" variant="outlined" fullWidth name="name" id="groupName"
             value={groupName}
             onChange={handleGroupNameChange}
-          />
-        </label>
-        <br />
-        <label>
-          Group Description:
-          <textarea
-            value={groupDescription}
+                />
+                <hr className="hrStyle"></hr>
+                <TextField label="Group Descriptions" multiline rows={4} fullWidth value={groupDescription}
             id="groupDescription"
             onChange={handleGroupDescriptionChange}
-          />
-        </label>
-        <br />
-        {subGroups.map((subGroup, index) => (
-          <div key={index}>
-            <h3>Sub Group {index + 1}</h3>
-            {index > 0 && (
-              <button type="button" onClick={() => handleRemoveSubGroup(index)}>
-                Remove Sub Group
-              </button>
-            )}
-            <br />
-            <label>
-              Your Question:
-              <input
-                type="text"
+                />
+                <hr className="hrStyle"></hr>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={8}>
+              <Paper className="paperStyle">
+              {subGroups.map((subGroup, index) => (
+                <div key={index}>
+                  <Grid align="center">
+                    <h2>Question {index + 1}</h2>
+                  </Grid>
+                  <TextField type={'text'} label="Your Question" variant="outlined" fullWidth name="name"
                 value={subGroup.question}
                 id={`question-${index}`}
                 onChange={(event) =>
-                  handleSubGroupChange(event, index, "question")
+                handleSubGroupChange(event, index, "question")
                 }
-              />
-            </label>
-            <br />
-            <label>
-              Option 1:
-              <input
-                type="text"
+                  />
+                  <hr className="hrStyle"></hr>
+                  <Grid justifyContent="left" container spacing={2}>
+                    <Grid item xs={12} md={8}>
+                      <Box component="div" sx={{ "& > :not(style)": { m: 1, width: "25ch" } }} noValidate autoComplete="off">
+                        <TextField type={'text'} label="Option1" variant="outlined"
                 value={subGroup.option1}
                 id={`option1-${index}`}
                 onChange={(event) =>
                   handleSubGroupChange(event, index, "option1")
                 }
-              />
-              <input
-                type="checkbox"
+                        />
+                        <Checkbox color="success" type="checkbox"
                 checked={subGroup.checked1}
                 onChange={(event) =>
                   handleCheckboxChange(event, index, "checked1")
                 }
-              />
-            </label>
-            <br />
-            <label>
-              Option 2:
-              <input
-                type="text"
+ />
+                        <TextField type={'text'} label="Option2" variant="outlined" 
                 value={subGroup.option2}
                 id={`option2-${index}`}
                 onChange={(event) =>
                   handleSubGroupChange(event, index, "option2")
                 }
-              />
-              <input
-                type="checkbox"
+ />
+                        <Checkbox color="success" type="checkbox"
                 checked={subGroup.checked2}
                 onChange={(event) =>
                   handleCheckboxChange(event, index, "checked2")
                 }
-              />
-            </label>
-            <br />
-          </div>
-        ))}
-        <button type="button" onClick={handleAddSubGroup}>
-          Add Sub Group
-        </button>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+ />
+                      </Box>
+                    </Grid>
+                  </Grid>
+                  <Grid align="center">
+                  {index > 0 && (      
+                    <Button variant="outlined"  startIcon={<DeleteIcon />} onClick={() => handleRemoveSubGroup(index)}>Remove Group</Button>
+                  )}
+                  </Grid>
+                </div>
+              ))}
+              </Paper>
+              <div className="headerstyleCrt">
+                <Typography variant="h5">
+                  <Button variant="outlined"  startIcon={<ControlPointOutlinedIcon />} onClick={handleAddSubGroup}>Add More Question</Button>
+                </Typography>
+                <Typography variant="h5" align="right">
+                  <Button variant="contained" type="submit" style={{ justifyContent: "center" }} startIcon={<SaveIcon />}>
+                    Save
+                  </Button>
+                </Typography>
+              </div>
+              <hr className="hrStyle"></hr>
+            </Grid>
+          </Grid>
+        </Box>
+      
+    </form>
+    <ToastContainer theme="colored"/>
+  </div>   
   );
 };
 

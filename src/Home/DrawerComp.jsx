@@ -20,13 +20,13 @@ const DrawerComp = () => {
                     
                 <ul className="navbar-linksTwo">
                   <li className="nav-itemtwo">
-                    <NavLink exact to="/" className="nav-link">Home</NavLink>
+                    <NavLink exact="true" to="/" className="nav-link">Home</NavLink>
                   </li>
                   <li>
-                    <NavLink exact to="/SingleQuiz" className="nav-link">My Quiz</NavLink>
+                    <NavLink exact="true" to="/SingleQuiz" className="nav-link">My Quiz</NavLink>
                   </li>
                   <li>
-                    <NavLink exact to="/PlayQuiz" className="nav-link">Play Quiz</NavLink>
+                    <NavLink exact="true" to="/PlayQuiz" className="nav-link">Play Quiz</NavLink>
                   </li>
                 </ul>
                 
