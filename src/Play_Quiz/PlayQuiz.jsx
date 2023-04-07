@@ -294,7 +294,25 @@ function PlayQuiz() {
           </div>
         )
       ) : (
-        <p>Loading data...</p>
+        <div>
+            <Box>
+              <Grid container spacing={2} justifyContent="center">
+                <Grid item xs={12} md={8}>
+                  <Paper className="paperStyle">
+                    <Grid align="center">
+                      <img src={Error} alt="" className="my-image" />
+                    </Grid>
+                    <Alert severity="error">
+                      <AlertTitle>Error</AlertTitle>
+                      There is no Data —{" "}
+                      <strong>check it out your localstorage!</strong>
+                    </Alert>
+                    <hr className="hrStyle"></hr>
+                  </Paper>
+                </Grid>
+              </Grid>
+            </Box>
+          </div>
       )}
       <ToastContainer theme="colored" />
     </div>
