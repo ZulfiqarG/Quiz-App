@@ -1,6 +1,6 @@
 import { Alert, AlertTitle, Box, Grid, Paper, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import congratulations from "../img/congratulations.png";
+import congratulations from "../img/Congratulations.jpeg";
 import Error from "../img/NoData.jpg";
 const Result = () => {
   const [userData, setUserData] = useState(null);
