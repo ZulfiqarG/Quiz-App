@@ -4,15 +4,6 @@
     justify-content: center;
     
   }
-
-  /* @media (max-width: 320px) {
-    .paper {
-      margin: 2px;
-      min-width: auto;
-      max-width: calc(100vw - 4px);
-    }
-  } */
-  
   
   .paper {
     background-color: #ffffff;

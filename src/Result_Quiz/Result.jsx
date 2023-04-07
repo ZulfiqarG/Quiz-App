@@ -10,24 +10,7 @@ const Result = () => {
     useEffect(() => {
       const data = localStorage.getItem('Users')
       setUserData(JSON.parse(data))
-    }, [])
-
-  //   const [showFormOne, setShowFormOne] = useState(true);
-  // const [showFormTwo, setShowFormTwo] = useState(false);
-  // const [showFormThree, setShowFormThree] = useState(false);
-
-  // const handleFormTwoClick = () => {
-  //   setShowFormOne(false);
-  //   setShowFormTwo(true);
-  //   setShowFormThree(false);
-  // };
-
-  // const handleFormThreeClick = () => {
-  //   setShowFormOne(false);
-  //   setShowFormTwo(false);
-  //   setShowFormThree(true);
-  // };
-
+    }, [])  
 
   return (
     <div>      
@@ -84,10 +67,6 @@ const Result = () => {
   </div>
       )}
     </div>
-
-
-
-
   )
 }
 
