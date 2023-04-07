@@ -144,6 +144,12 @@ const CreateNewQuiz = () => {
         document.getElementById(`option2-${i}`).focus();
         return;
       }
+      if (!subGroups[i].checked1 && !subGroups[i].checked2) {
+        toast.error(`Please check at least one Correct Answer for Question ${i + 1}`, {
+          position: "top-center",
+        });
+        return;
+      }
     }
 
     //TODO Save Correct Answer:
