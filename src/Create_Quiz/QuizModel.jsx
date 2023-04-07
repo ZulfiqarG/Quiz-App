@@ -1,14 +1,18 @@
 import {
+  Avatar,
   Button,
   Dialog,
   DialogContent,
   DialogTitle,
   Grid,
+  Typography,
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./QuizModel.css";
+import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
 
+const avatarStyle={backgroundColor: '#d32f2f',cursor: 'pointer'}
 const QuizModel = ({ closeModal }) => {
   const [open, setOpen] = React.useState(true);
 
@@ -21,6 +25,7 @@ const QuizModel = ({ closeModal }) => {
   const handleClose = () => {
     setOpen(true);
   };
+
   return (
     <div>
       <Dialog
@@ -30,8 +35,16 @@ const QuizModel = ({ closeModal }) => {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Choose Your Quiz Option"}
-          <hr />
+        <div className="headerstyleCrt">
+                <Typography variant="h5">
+                  
+                    Choose Your Quiz Option
+                  
+                </Typography>
+                <Typography variant="h5" align="right">                  
+                <Avatar style={avatarStyle} onClick={()=> closeModal(false)}><HighlightOffOutlinedIcon /></Avatar>                  
+                </Typography>
+              </div>
         </DialogTitle>
         <DialogContent>
           <div id="alert-dialog-description">
@@ -50,8 +63,8 @@ const QuizModel = ({ closeModal }) => {
               <Grid item xs={12} md={4}>
                 <Button variant="outlined">MCQ(2 or 4 Sentence)</Button>
               </Grid>
-            </Grid>
-          </div>
+            </Grid>         
+          </div>          
         </DialogContent>
       </Dialog>
     </div>

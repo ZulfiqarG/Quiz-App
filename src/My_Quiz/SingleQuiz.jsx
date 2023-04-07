@@ -29,7 +29,7 @@ import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import "./SingleQuiz.css";
 import { useNavigate } from "react-router-dom";
-import Error from "../img/404.jpg";
+import Error from "../img/NoData.jpg";
 
 const IOSSwitch = styled((props) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -585,9 +585,8 @@ const SingleQuiz = () => {
                     <img src={Error} alt="" className="my-image" />
                   </Grid>
                   <Alert severity="error">
-                    <AlertTitle>Error</AlertTitle>
-                    There is no Data —{" "}
-                    <strong>check it out your localstorage!</strong>
+                  <AlertTitle>Oops!</AlertTitle>                    
+                    <strong> You haven't created any quize to play</strong>
                   </Alert>
                   <hr className="hrStyle"></hr>
                 </Paper>

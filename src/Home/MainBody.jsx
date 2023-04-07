@@ -73,7 +73,7 @@ const MainBody = () => {
                 textColor="#fff"
                 mt={{ xs: 12, sm: 18 }}
               >
-                Paly Quizes
+                Play Quizes
               </Typography>
             </CardContent>
           </Card>

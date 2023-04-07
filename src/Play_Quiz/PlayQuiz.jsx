@@ -22,7 +22,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import QueuePlayNextIcon from "@mui/icons-material/QueuePlayNext";
-import Error from "../img/404.jpg";
+import Error from "../img/NoData.jpg";
 import { useNavigate } from "react-router-dom";
 
 function PlayQuiz() {
@@ -282,9 +282,8 @@ function PlayQuiz() {
                       <img src={Error} alt="" className="my-image" />
                     </Grid>
                     <Alert severity="error">
-                      <AlertTitle>Error</AlertTitle>
-                      There is no Data —{" "}
-                      <strong>check it out your localstorage!</strong>
+                    <AlertTitle>Oops!</AlertTitle>                    
+                    <strong> You haven't created any quize to play</strong>
                     </Alert>
                     <hr className="hrStyle"></hr>
                   </Paper>
@@ -303,9 +302,8 @@ function PlayQuiz() {
                       <img src={Error} alt="" className="my-image" />
                     </Grid>
                     <Alert severity="error">
-                      <AlertTitle>Error</AlertTitle>
-                      There is no Data —{" "}
-                      <strong>check it out your localstorage!</strong>
+                    <AlertTitle>Oops!</AlertTitle>                    
+                    <strong> You haven't created any quize to play</strong>
                     </Alert>
                     <hr className="hrStyle"></hr>
                   </Paper>
