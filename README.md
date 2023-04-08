@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Almabetter-QUIZ-APP 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# About MyQuiz-App 
 
-## Available Scripts
+## Overview 
 
-In the project directory, you can run:
+MyQuiz-App is a web application designed to allow users to create and play custom quizzes. The application is up into four main modules: 
+                  
+- Home
+- Create Quiz 
+- My Quiz 
+- Authentication 
+- Play Quiz 
+- Result Quiz 
 
-### `npm start`
+## Home 
+The home module provides users with several options, including the ability to create a quiz, view their existing quizzes, and play a quiz.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Create Quiz 
+The create quiz module allows users to create their own custom quizzes by adding questions and answers.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## My Quiz 
+The My Quiz module displays all the quizzes created by the user in a table format.
 
-### `npm test`
+## Authentication 
+The authentication module allows users to log in to the application and play quiz.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Play Quiz 
+The play quiz module allows users to select a quiz and play it.
 
-### `npm run build`
+## Result 
+Finally, the playQuiz module allows users to play quizzes created by other users or their own saved quizzes. The app keeps track of the user's scores and displays them at the end of each quiz in result page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Technologies Used 
+- Reactjs( React Router ),
+- CSS (using Material UI)
+- Redux, Redux Thunk Toolkit,
+- React-Toastify
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Installation 
 
-### `npm run eject`
+To install the application, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Clone the repository to your local machine.
+- Navigate to the project directory.
+- Run npm install to install the project dependencies.
+- Run npm start to start the application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Visit my website for a Quiz App by clicking the link.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+https://quiz-app-sigma-two.vercel.app/
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Watch Explanation video  
+https://drive.google.com/file/d/13rCHgkJF0Iz2-TocWFmdoCyGABFbJdAg/view?usp=share_link
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Add More Input Box (Button)
+- Delete button (icon)
+- Edit(update) button (icon)
+- View button (icon)
 
-### Analyzing the Bundle Size
+- See all (Button)
+- Back Button
+- close button 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Conclusion
+MyQuiz-App is a powerful tool for creating and playing custom quizzes. With its intuitive interface and powerful features, it's the perfect solution for anyone looking to create engaging quizzes for their users.
