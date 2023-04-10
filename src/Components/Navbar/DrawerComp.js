@@ -1,13 +1,15 @@
-import { Drawer, IconButton, List, ListItemButton } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import React, { useState } from "react";
+import React, { useState } from 'react'
+import { Drawer,List, ListItemButton, IconButton } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from "react-router-dom";
 import "./DrawerComp.css";
 
+//Drawer component 
 const DrawerComp = () => {
+  // state to switch between opening and closing of drawer
   const [openDrawer, setopenDrawer] = useState(false);
   return (
-    <React.Fragment>
+<React.Fragment>
       <Drawer open={openDrawer} onClose={() => setopenDrawer(false)}>
         <List>
           <ListItemButton onClick={() => setopenDrawer(false)}>
@@ -18,12 +20,12 @@ const DrawerComp = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink exact="true" to="/SingleQuiz" className="nav-link">
+                <NavLink exact="true" to="/my-quiz" className="nav-link">
                   My Quiz
                 </NavLink>
               </li>
               <li>
-                <NavLink exact="true" to="/PlayQuiz" className="nav-link">
+                <NavLink exact="true" to="/play-quiz" className="nav-link">
                   Play Quiz
                 </NavLink>
               </li>
@@ -38,7 +40,7 @@ const DrawerComp = () => {
         <MenuIcon />
       </IconButton>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default DrawerComp;
+export default DrawerComp

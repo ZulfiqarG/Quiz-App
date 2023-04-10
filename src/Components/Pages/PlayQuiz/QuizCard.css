@@ -1,0 +1,21 @@
+#container{
+    margin-top: 70px;
+    /* background-image:url("../../Images/paper.jpg"); */
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    background-image: -webkit-linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background-image: -moz-linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background-image: -o-linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    background-color:black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px black;
+    height: 90%;
+    width: 50%;
+    padding: 30px
+}
+
+@media screen and (max-width:900px) {
+    #container{
+        width:80%;
+    }
+}

@@ -1,0 +1,45 @@
+@media (max-width: 425px) {
+    .divStyle {
+      color: black;
+      padding: 1rem;      
+    }
+  }
+  
+  @media (min-width: 426px) {
+    .divStyle {
+        color: black;
+        padding: 1rem;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+  }
+/* //---------------Navbar-Style------------------ */
+.navbar-links {
+    display: flex;
+    font-size: 1.2rem;
+}
+.navbar-links ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.navbar-links li {
+    list-style: none;
+}
+
+.active {
+    background-color: #50cace;
+    
+}
+
+.navbar-links li .nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    /* display: block; */
+}
+
+.clsTitle {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
