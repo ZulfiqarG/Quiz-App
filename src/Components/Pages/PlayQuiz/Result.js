@@ -44,7 +44,7 @@ function Result(props) {
   <div style={{display:"flex",
           flexDirection:"column",
           justifyContent:"space-around", borderRadius:"10px",
-          alignItems:"center", backgroundColor:"white",padding:"5px",border:"8px solid black"}}>
+          alignItems:"center", backgroundColor:"white",padding:"5px",border:"8px solid #17adcf"}}>
         <h2 >Hii ! {props.name}  </h2>
         <h1>
           Your Score is {mapped.filter((el) => el === true).length} out of{" "}

@@ -1,15 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Alert, AlertTitle, Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Paper } from "@mui/material";
+import { Alert, AlertTitle, Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./MyQuiz.css";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { useDispatch } from "react-redux";
 import { deleteQuiz, toggleActive } from "../../../Redux/Actions/Actions";
 import { useState } from "react";
 import Error from "../../Images/NoData.jpg";
 import Switch from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
+import { Delete, Edit, Visibility } from "@mui/icons-material";
 
 const IOSSwitch = styled((props) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -136,47 +136,94 @@ const MyQuiz = () => {
           </Box>
         </div>
           ) : (
-            <div className="table">
-              <table>
-                <thead>
+//             <div className="table">
+//               <table>
+//                 <thead>
 
-                <tr className="tre tableHead">
-                  <th>Quiz No.</th>
-                  <th>Title</th>
-                  <th>Status</th>
-                  <th>Created On</th>
-                  <th>Actions</th>
-                </tr>
+//                 <tr className="tre tableHead">
+//                   <th>Quiz No.</th>
+//                   <th>Title</th>
+//                   <th>Status</th>
+//                   <th>Created On</th>
+//                   <th>Actions</th>
+//                 </tr>
               
-                </thead>
-                {Quiz.map((el, i) => (
-                  <tbody key={i}>
-                  <tr className="tre">
-                    <td >{i + 1}</td>
-                    <td className="ti">{el.title}</td>
-                  <td>
-                    {/* <button className="switch" style={{backgroundColor:`${el.isActive?"green":"grey"}`}}  onClick={()=>toggleHandler(el.id)} >{el.isActive?<span>Active</span>:<span>Inactive</span>}  </button> */}
-                    <IOSSwitch checked={el.isActive} onChange={() => toggleHandler(el.id)} />
-{el.isActive ? <span>Active</span> : <span>Inactive</span>}
-            </td>
-                    <td>
-                      {el.createdOn.getDate()}/{el.createdOn.getMonth()}/
-                      {el.createdOn.getFullYear()} {el.createdOn.getHours()}:
-                      {el.createdOn.getMinutes()}
-                    </td>
-                    <td>
-                      <Button
-                        variant="text"
-                        onClick={() => handleDelete(el.id)}
-                      >
-                        <DeleteIcon />
-                      </Button>
-                    </td>
-                  </tr>
-                  </tbody>
-                ))}
-              </table>
-            </div>
+//                 </thead>
+//                 {Quiz.map((el, i) => (
+//                   <tbody key={i}>
+//                   <tr className="tre">
+//                     <td >{i + 1}</td>
+//                     <td className="ti">{el.title}</td>
+//                   <td>
+//                     {/* <button className="switch" style={{backgroundColor:`${el.isActive?"green":"grey"}`}}  onClick={()=>toggleHandler(el.id)} >{el.isActive?<span>Active</span>:<span>Inactive</span>}  </button> */}
+//                     <IOSSwitch checked={el.isActive} onChange={() => toggleHandler(el.id)} />
+// {el.isActive ? <span>Active</span> : <span>Inactive</span>}
+//             </td>
+//                     <td>
+//                       {el.createdOn.getDate()}/{el.createdOn.getMonth()}/
+//                       {el.createdOn.getFullYear()} {el.createdOn.getHours()}:
+//                       {el.createdOn.getMinutes()}
+//                     </td>
+//                     <td>
+//                       <Button
+//                         variant="text"
+//                         onClick={() => handleDelete(el.id)}
+//                       >
+//                         <DeleteIcon />
+//                       </Button>
+//                     </td>
+//                   </tr>
+//                   </tbody>
+//                 ))}
+//               </table>
+//             </div>
+<Box>
+              <Grid container spacing={2} justifyContent="center">
+                <Grid item xs={12} md={12}>
+<Paper className="paperStyles">
+                    <TableContainer>
+                      <Table aria-label="simple table">
+                        <TableHead>
+                          <TableRow>
+                            <TableCell>Quiz.No</TableCell>
+                            <TableCell align="right">Title</TableCell>
+                            <TableCell align="right">Status</TableCell>
+                            <TableCell align="right">Created</TableCell>
+                            <TableCell align="right">Action</TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                        {Quiz.map((el, i) => (
+                            <TableRow key={i}>
+                              <TableCell component="th" scope="row">
+                              {i + 1}
+                              </TableCell>
+                              <TableCell align="right">
+                              {el.title}
+                              </TableCell>
+                              <TableCell align="right">
+                              <IOSSwitch checked={el.isActive} onChange={() => toggleHandler(el.id)} />
+                                {el.isActive ? <span>Active</span> : <span>Inactive</span>}
+                              </TableCell>
+                              <TableCell align="right">
+                              {el.createdOn.getDate()}/{el.createdOn.getMonth()}/
+                              {el.createdOn.getFullYear()} {el.createdOn.getHours()}:
+                              {el.createdOn.getMinutes()} 
+                              </TableCell>
+                              <TableCell align="right">
+                                <Button ><Edit /> </Button>
+                                <Button ><Visibility /></Button>                                
+                                <Button variant="text" onClick={() => handleDelete(el.id)}><Delete /></Button>
+                              </TableCell>
+                            </TableRow>
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </Paper>
+                  </Grid>
+              </Grid>
+            </Box>
           )}
         </div>
       )}
